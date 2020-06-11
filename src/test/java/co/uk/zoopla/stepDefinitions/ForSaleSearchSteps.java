@@ -3,15 +3,40 @@ package co.uk.zoopla.stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ForSaleSearchSteps {
+
+    WebDriver driver;
+
     @Given("I navigate to Zoopla homepage")
     public void i_navigate_to_Zoopla_homepage() {
+        //Launch a browser
+        //Enter the url
+        //Navigates to the url.
+
+
+        //ist: set up browser
+        WebDriverManager.chromedriver().setup();//asking webdrivermanager to give us
+                                               // chromedriver and set it up for us
+
+        //Launch browser
+
+        driver = new ChromeDriver();
+
+        //Enter the url and
+        //Navigates to the url
+
+        driver.navigate().to("https://www.zoopla.co.uk/");
 
     }
 
     @When("I enter {string} into the search field")
     public void i_enter_into_the_search_field(String string) {
+        driver.findElement(By.id("search-input-location")).sendKeys();
 
     }
 

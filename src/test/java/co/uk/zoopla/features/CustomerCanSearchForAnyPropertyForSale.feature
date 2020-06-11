@@ -12,6 +12,7 @@ Scenario Outline: Customer can search for any property
   And I select "NoOfBeds" from Bedrooms
   And I click on search button
   Then the search for "London" is displayed
+  And I click on one of the search results
 
   Examples:
   |Location          |MinPrice|MaxPrice |PropertyType|NoOfBeds|
@@ -26,21 +27,21 @@ Scenario Outline: Customer can search for any property
 
 
 
-  Scenario Outline: Customer cannot search for property by entering wrong location
-    Given I navigate to Zoopla homepage
-    When I enter "Location" into the search field
-    And I select "MinPrice" from Min price
-    And I select "MaxPrice" from Max price
-    And I select "PropertyType" from property type
-    And I select "NoOfBeds" from Bedrooms
-    And I click on search button
-    Then the search for "Location" is displayed
-    And I click on one of the search results
-    And an error page is displayed
-
-    Examples:
-      |Location     |MinPrice|MaxPrice |PropertyType|NoOfBeds|
-      |NNNNN        |No min  |No max   |Show all    |No min  |
+#  Scenario Outline: Customer cannot search for property by entering wrong location
+#    Given I navigate to Zoopla homepage
+#    When I enter "Location" into the search field
+#    And I select "MinPrice" from Min price
+#    And I select "MaxPrice" from Max price
+#    And I select "PropertyType" from property type
+#    And I select "NoOfBeds" from Bedrooms
+#    And I click on search button
+#    Then the search for "Location" is displayed
+#    And I click on one of the search results
+#    And an error page is displayed
+#
+#    Examples:
+#      |Location     |MinPrice|MaxPrice |PropertyType|NoOfBeds|
+#      |NNNNN        |No min  |No max   |Show all    |No min  |
 
 
 #  Scenario: Search for property in a city with min price
